@@ -8,10 +8,6 @@ class Dog:
   # Remember to put the "self" parameter every time we make a class method!
   def bark(self):
     print("Woof!")
-# instantiation call that creates a Dog object:
 
-my_dog = Dog("Pono", "Fluffy monster")
-print(my_dog.breed)
-print(my_dog.name)
-my_dog.bark()
+
 
