@@ -10,7 +10,7 @@ class Ability:
         return random_value
     
     def __str__(self):
-        return self.name
+        return f"Ability: {self.name}"
     
 
 if __name__ == "__main__":

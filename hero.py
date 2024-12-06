@@ -38,14 +38,14 @@ class Hero:
   def add_weapon(self, weapon):
      self.abilities.append(weapon)
   
-  def block(self):
+  def defend(self):
     total_defense = 0
     for armor in self.armors:
-      total_defense += armor.block()
+      total_defense += armor.defend()
     return total_defense
   
   def take_damage(self, damage):
-    damage_taken = damage - self.block() 
+    damage_taken = damage - self.defend() 
     self.current_health -= damage_taken
     return self.current_health
   
@@ -83,7 +83,7 @@ class Hero:
 
 if __name__ == "__main__":
   # If you run this file from the terminal
-  # this block is executed.
+  # this defend is executed.
   wonder_woman = Hero("Diana", 300)
   batman = Hero("Bruce", 189)
   print(f"WonderWoman Starting Health: {wonder_woman.current_health}")
@@ -103,7 +103,7 @@ if __name__ == "__main__":
   print(f"Wonder Woman Abilities: {[ability.name for ability in wonder_woman.abilities]}")
   print(f"Wonder Woman Attack: {wonder_woman.attack()}")
   print(f"Wonder Woman Armor: {[armor.name for armor in wonder_woman.armors]}")
-  print(f"Wonder Woman Defense: {wonder_woman.block()}")
+  print(f"Wonder Woman Defense: {wonder_woman.defend()}")
   print(f"WonderWoman Current Health: {wonder_woman.current_health}")
   wonder_woman.is_conscious()
   
