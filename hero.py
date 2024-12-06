@@ -19,6 +19,15 @@ class Hero:
     # and are set to empty lists on initialization
     self.abilities = list()
     self.armors = list()
+    self.kills: int = 0
+    self.deaths: int = 0
+
+  def add_kill(self):
+        self.kills += 1
+
+  def add_death(self):
+        self.deaths += 1
+  
   def fight(self, opponent):
     winner = random.choice([self, opponent])
     return f"{winner.name} wins!"
@@ -49,7 +58,7 @@ class Hero:
     self.current_health -= damage_taken
     return self.current_health
   
-  def is_conscious(self):
+  def is_alive(self):
         """
         return True or False depending on whether the hero is alive or not
         """
@@ -61,9 +70,9 @@ class Hero:
             return True
   def fight(self, opponent):
         """
-        current hero will take turns fighting the oppenent hero passed in
+        current hero will take turns fighting the opponent hero passed in
         """
-        while self.is_conscious() == True and opponent.is_conscious() == True:
+        while self.is_alive() == True and opponent.is_alive() == True:
             self.take_damage(opponent.attack())
             opponent.take_damage(self.attack())
             print(f"{self.name} has {self.current_health} hp and {opponent.name} has {opponent.current_health} hp")
@@ -105,5 +114,5 @@ if __name__ == "__main__":
   print(f"Wonder Woman Armor: {[armor.name for armor in wonder_woman.armors]}")
   print(f"Wonder Woman Defense: {wonder_woman.defend()}")
   print(f"WonderWoman Current Health: {wonder_woman.current_health}")
-  wonder_woman.is_conscious()
+  wonder_woman.is_alive()
   
